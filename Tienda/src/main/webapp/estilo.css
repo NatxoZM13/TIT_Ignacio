@@ -1,0 +1,12 @@
+h1{
+	text-align: center;
+}
+
+table{
+	border: green 1px solid;
+}
+
+th{
+	color: white;
+	background-color: green;
+}

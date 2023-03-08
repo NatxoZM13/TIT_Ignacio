@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+	<meta charset="UTF-8">
+	<title>ADMINISTRADOR</title>
+	<link rel = "stylesheet" type = "text/css" href = "estilo.css">
+	<script>
+			function validaFormulario(){
+				var r = true;
+				var s = true;
+				var d = document.getElementById("i1").value;
+				var p = document.getElementById("i2").value;
+
+				if(d == ""){
+					alert("Introduzca la decripción");
+					document.getElementById("i1").style.backgroundColor = "yellow";
+					r = false;
+				}
+				else{
+					document.getElementById("i1").style.backgroundColor = "white";
+				}
+
+				if(p == ""){
+					alert("Introduzca el precio");
+					document.getElementById("i2").style.backgroundColor = "yellow";
+					r = false;
+				}
+				else{
+					document.getElementById("i2").style.backgroundColor = "white";
+				}	
+
+				if(isNaN(p)){
+					alert("El valor introducido a precio no es válido");
+					s = false;
+				}
+
+				if(r == s && s == true){
+					return p;
+				}
+				else{
+					return false;
+				}
+			}
+
+			function limpiarFormulario(){
+				var inputDescription = document.getElementById("i1").style.backgroundColor = "white";
+				var inputPrecio = document.getElementById("i2").style.backgroundColor = "white";
+			}
+		</script>
+</head>
+
+<body>
+	<h1>¡Bienvenido administrador!</h1>
+	
+	<form action = "ServletAdministrador" method = "post" onsubmit = "return validaFormulario();" onreset = "return limpiarFormulario();">
+		<h4>Tipo de producto:</h4>
+		<select name = "tipo">
+			<option value = "libro">Libro</option>
+			<option value = "electronica">Electrónica</option>
+			<option value = "deporte">Deporte</option>
+		</select>
+	
+		<h4>Descripción:</h4>
+		<input type = "text" name = "descripcion" id = "i1"/>
+		
+		<h4>Precio:</h4>
+		<input type = "text" name = "precio" id = "i2"/>
+		
+		<br/><br/>
+		<button type = "reset">Reset</button>
+		<input type = 'submit' value = 'Enviar'>
+	</form>
+	
+</body>
+
+</html>
