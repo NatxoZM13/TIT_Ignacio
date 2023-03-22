@@ -1,0 +1,48 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<carrito>
+    <producto referencia="1">
+        <descripcion>Guantes SP</descripcion>
+        <precio>65.99</precio>
+        <tipo>deporte</tipo>
+    </producto>
+    <producto referencia="2">
+        <descripcion>Botas Copa Mundial</descripcion>
+        <precio>119.99</precio>
+        <tipo>deporte</tipo>
+    </producto>
+    <producto referencia="3">
+        <descripcion>Iphone 14</descripcion>
+        <precio>849.99</precio>
+        <tipo>electronica</tipo>
+    </producto>
+    <producto referencia="4">
+        <descripcion>Smart TV LG</descripcion>
+        <precio>499.99</precio>
+        <tipo>electronica</tipo>
+    </producto>
+    <producto referencia="5">
+        <descripcion>Game Of Thrones</descripcion>
+        <precio>15.65</precio>
+        <tipo>libro</tipo>
+    </producto>
+    <producto referencia="6">
+        <descripcion>The Witcher</descripcion>
+        <precio>19.99</precio>
+        <tipo>libro</tipo>
+    </producto>
+    <producto referencia="7">
+        <descripcion>Medias Adidas</descripcion>
+        <precio>15.99</precio>
+        <tipo>deporte</tipo>
+    </producto>
+    <producto referencia="8">
+        <descripcion>Zapatillas Run Nike</descripcion>
+        <precio>69.99</precio>
+        <tipo>deporte</tipo>
+    </producto>
+    <producto referencia="9">
+        <descripcion>Pack Tacos Alumino</descripcion>
+        <precio>9.99</precio>
+        <tipo>deporte</tipo>
+    </producto>
+</carrito>
