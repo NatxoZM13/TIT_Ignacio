@@ -1,6 +1,7 @@
 package dl;
 
 import java.io.File;
+import java.io.FileNotFoundException;
 
 import javax.xml.bind.JAXBContext;
 import javax.xml.bind.JAXBException;
@@ -10,7 +11,7 @@ import javax.xml.bind.Unmarshaller;
 public class Fichero {
 	private static final String FILENAME = "/home/980409/STA/TIT_Ignacio/Tienda/datos.xml";
 	
-	public static void altaProducto(Producto p) {
+	public static void altaProducto(Producto p) throws JAXBException {
 		try {
 			File f = new File(FILENAME);
 			Carrito carrito = new Carrito();
@@ -31,7 +32,7 @@ public class Fichero {
 		}
 	}
 	
-	public static Carrito leeFichero() {
+	public static Carrito leeFichero() throws JAXBException, FileNotFoundException {
 		Carrito carrito = new Carrito();
 		
 		try {

@@ -45,4 +45,9 @@
         <precio>9.99</precio>
         <tipo>deporte</tipo>
     </producto>
+    <producto referencia="10">
+        <descripcion>PlayStation 5</descripcion>
+        <precio>549.99</precio>
+        <tipo>electronica</tipo>
+    </producto>
 </carrito>

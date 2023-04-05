@@ -1,0 +1,44 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:define name="TituloDocumento">ADMINISTRADOR</ui:define>	
+	
+	<ui:define name="TituloPagina">
+		<h1>¡Bienvenido administrador!</h1>
+	</ui:define>
+	
+	<ui:define name="Contenido">
+		<h:form>
+			<h4>Tipo de producto:</h4>
+			<h:selectOneMenu value="#{productBean.entity.tipo}">
+				<f:selectItems value="#{productBean.tipo}" />
+			</h:selectOneMenu>
+			
+			<h4>Descripción:</h4>
+			<h:inputText id="descripcion" value="#{productBean.entity.descripcion}" required="true" requiredMessage="ERROR: Introduzca descripción" />
+			<h:message for="descripcion" style="color:red"/>
+			
+			<h4>Precio:</h4>
+			<h:inputText id="precio" value="#{productBean.entity.precio}" required="true" requiredMessage="ERROR: Introduzca precio" />
+			<h:message for="precio" style="color:red"/>
+			<br /><br />
+			<h:commandButton action="#{shopBean.add(productBean.entity)}" value="Enviar" />
+		</h:form>
+		
+		<h:panelGroup rendered="#{shopBean.altaExito}">
+			<h1>Artículo #{productBean.entity.descripcion} dado de alta en la categoría #{productBean.entity.tipo} con un precio de #{productBean.entity.precio} euros</h1>
+		</h:panelGroup>
+		
+		<br /><br />
+		<h:outputLink value="usuario.xhtml">LISTA ARTÍCULOS</h:outputLink>
+		<br /><br />
+		<h:outputLink value="usuario2.xhtml">LISTA ARTÍCULOS 2</h:outputLink>
+	</ui:define>
+	
+</ui:composition>
+
+</html>

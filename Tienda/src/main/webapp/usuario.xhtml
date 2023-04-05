@@ -1,0 +1,43 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html">
+
+<ui:composition template="/WEB-INF/templates/layout.xhtml">
+	<ui:define name="TituloDocumento">LISTA ARTÍCULOS</ui:define>	
+	
+	<ui:define name="TituloPagina">
+		<h1>¡Bienvenido usuario!</h1>
+	</ui:define>
+	
+	<ui:define name="Contenido">
+		<h:dataTable value="#{shopBean.productos}" var="p">
+			<h:column>
+				<f:facet name="header">Nº Referencia</f:facet>
+				#{p.referencia}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Tipo de producto</f:facet>
+				#{p.tipo}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Descripción</f:facet>
+				#{p.descripcion}
+			</h:column>
+			<h:column>
+				<f:facet name="header">Precio</f:facet>
+				#{p.precio}
+			</h:column>
+		</h:dataTable>
+		
+		<br /><br />
+		<h:form>
+			<h:commandButton action="administrador" value="ADMINISTRADOR" />
+		</h:form>
+	
+	</ui:define>
+	
+</ui:composition>
+
+</html>
