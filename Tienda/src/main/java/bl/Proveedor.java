@@ -1,25 +1,29 @@
 package bl;
 
 import java.io.FileNotFoundException;
+import java.io.Serializable;
 
-import javax.ws.rs.Consumes;
-import javax.ws.rs.GET;
-import javax.ws.rs.POST;
-import javax.ws.rs.Path;
-import javax.ws.rs.Produces;
-import javax.ws.rs.core.MediaType;
+import javax.annotation.security.DeclareRoles;
+import javax.annotation.security.PermitAll;
+import javax.annotation.security.RolesAllowed;
+import javax.ejb.LocalBean;
+import javax.ejb.Stateless;
 import javax.xml.bind.JAXBException;
+
+import org.jboss.ejb3.annotation.SecurityDomain;
 
 import dl.Carrito;
 import dl.Fichero;
 import dl.Producto;
 
-@Path("/proveedor")
-public class Proveedor {
+@Stateless
+@LocalBean
+@DeclareRoles({"admin","user"})
+@SecurityDomain("Internal")
+public class Proveedor implements Serializable {
+	private static final long serialVersionUID = 1L;
 	
-	@POST
-	@Path("/altaProducto")
-	@Consumes(MediaType.APPLICATION_JSON)
+	@RolesAllowed("admin")
 	public void altaProducto(Producto p) {
 		try {
 			Fichero.altaProducto(p);
@@ -28,9 +32,7 @@ public class Proveedor {
 		}
 	}
 	
-	@GET
-	@Path("/leeFichero")
-	@Produces(MediaType.APPLICATION_JSON)
+	@PermitAll
 	public Carrito leeFichero() {
 		Carrito carrito = new Carrito();
 		

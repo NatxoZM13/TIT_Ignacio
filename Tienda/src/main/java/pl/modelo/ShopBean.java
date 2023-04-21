@@ -3,9 +3,13 @@ package pl.modelo;
 import java.io.Serializable;
 import java.util.List;
 
+import javax.ejb.EJB;
+import javax.faces.context.ExternalContext;
+import javax.faces.context.FacesContext;
 import javax.faces.view.ViewScoped;
 import javax.inject.Named;
 
+import bl.Proveedor;
 import dl.Producto;
 
 @Named
@@ -17,13 +21,14 @@ public class ShopBean implements Serializable {
 	private static int lastReferencia = 0;
 	private boolean altaExito;
 	
-	Consumidor cliente = new Consumidor();
+	@EJB
+	private Proveedor proveedor;
 	
 	public void add(Producto p) {
 		lastReferencia++;
 
 		p.setReferencia(lastReferencia);
-		cliente.altaProducto(p);
+		proveedor.altaProducto(p);
 
 		altaExito = true;
 		productos = null;
@@ -31,13 +36,19 @@ public class ShopBean implements Serializable {
 	
 	public List<Producto> getProductos() {
 		if(productos == null)
-			productos = cliente.leeFichero().getCarrito();
-		
+			productos = proveedor.leeFichero().getCarrito();
+			
 		return productos;
 	}
 
 	public boolean getAltaExito() {
 		return altaExito;
+	}
+	
+	public String getRemoteUser() {
+		ExternalContext context = FacesContext.getCurrentInstance().getExternalContext();
+		
+		return context.getRemoteUser();
 	}
 	
 }

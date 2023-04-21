@@ -13,4 +13,25 @@
     <servlet-name>Faces Servlet</servlet-name>
     <url-pattern>*.xhtml</url-pattern>
   </servlet-mapping>
-</web-app> 
+   
+  <login-config>
+  	<auth-method>BASIC</auth-method>
+  	<realm-name/>
+  </login-config>
+  <security-role>
+  	<description>Administrador</description>
+  	<role-name>admin</role-name>
+  </security-role>
+  <security-constraint>
+  	<web-resource-collection> 
+  		<web-resource-name>Tienda</web-resource-name>
+  		<url-pattern>/administrador.xhtml</url-pattern>
+  	</web-resource-collection>
+  	<auth-constraint>
+  		<role-name>admin</role-name>
+  	</auth-constraint>
+  	<user-data-constraint>
+  		<transport-guarantee>NONE</transport-guarantee>
+  	</user-data-constraint>
+  </security-constraint>
+</web-app>    
